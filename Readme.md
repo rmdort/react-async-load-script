@@ -2,6 +2,8 @@
 
 A higher order React component to lazy load external javascript files.
 
+Note: Requires Promise polyfill
+
 ## Installation
 
 ````
