@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React from 'react'
 import asyncScript from 'async-script'
 
 /**
@@ -15,7 +15,7 @@ export function createPromise (url) {
  * Sequentially execute promise
  * @params {Array} scripts
  */
-function loadScripts (scripts) {
+export function loadScripts (scripts) {
   return scripts.reduce((cur, next) => cur.then(() => createPromise(next)), new Promise((resolve) => resolve()))
 }
 
@@ -25,7 +25,7 @@ function loadScripts (scripts) {
  */
 export default function (scripts) {
   return function (WrappedComponent) {
-    return class LoadScript extends Component {
+    return class LoadScript extends React.Component {
       constructor (props) {
         super(props)
         this.state = {
