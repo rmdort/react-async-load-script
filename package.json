@@ -2,7 +2,7 @@
   "name": "react-async-load-script",
   "version": "1.0.0",
   "description": "Async script loader HOC for React",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest",
     "watch": "BABEL_ENV=production babel --watch index.js --out-dir lib",
