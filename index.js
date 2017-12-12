@@ -13,7 +13,7 @@ export function createPromise (url) {
 
 /**
  * Sequentially execute promise
- * @param {Array} scripts
+ * @params {Array} scripts
  */
 function loadScripts (scripts) {
   return scripts.reduce((cur, next) => {
