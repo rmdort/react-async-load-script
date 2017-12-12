@@ -17,9 +17,7 @@ export function createPromise (url) {
  */
 function loadScripts (scripts) {
   return scripts.reduce((cur, next) => {
-    return cur.then(() => {
-      return createPromise(next)
-    })
+    return cur.then(() => createPromise(next))
   }, new Promise((resolve, reject) => resolve()))
 }
 
