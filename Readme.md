@@ -1,6 +1,6 @@
 # React async script loader
 
-A higher order React component to lazy load external javascript files.
+A higher order React component to lazy load external javascript files. Scripts are loaded sequentially.
 
 Note: Requires Promise polyfill
 
