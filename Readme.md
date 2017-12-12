@@ -24,7 +24,7 @@ scriptLoader([...scripts])(YourComponent)
 class D3Chart extends React.Component {
   componentDidUpdate (prevProps) {
     if (
-      prevProps.isScriptLoadSuccess !== this.props.isScriptLoadSucceed && 
+      prevProps.isScriptLoadSucceed !== this.props.isScriptLoadSucceed && 
       this.props.isScriptLoadSucceed
     ) {
       // Initialize d3 chart

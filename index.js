@@ -46,7 +46,7 @@ export default function (scripts) {
           })
       }
       render () {
-        return <WrappedComponent {...this.props} {...this.state} />
+        return <WrappedComponent {...this.props} isScriptLoaded={this.state.isScriptLoaded} isScriptLoadSucceed={this.state.isScriptLoadSucceed} />
       }
     }
   }
