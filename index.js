@@ -3,7 +3,7 @@ import asyncScript from 'async-script'
 
 /**
  * Creates a single promise
- * @params url: string
+ * @params {string} url
  */
 export function createPromise (url) {
   return new Promise((resolve, reject) => {
@@ -12,8 +12,20 @@ export function createPromise (url) {
 }
 
 /**
+ * Sequentially execute promise
+ * @param {Array} scripts
+ */
+function loadScripts (scripts) {
+  return scripts.reduce((cur, next) => {
+    return cur.then(() => {
+      return createPromise(next)
+    })
+  }, new Promise((resolve, reject) => resolve()))
+}
+
+/**
  * Higher order component to load array of script tags
- * @params scripts: Array
+ * @params {Array} scripts
  */
 export default function (scripts) {
   return function (WrappedComponent) {
@@ -27,12 +39,8 @@ export default function (scripts) {
       }
       static displayName = 'AsyncLoadScripts'
       componentDidMount () {
-        var promises = []
-        for (let i = 0; i < scripts.length; i++) {
-          promises.push(createPromise(scripts[i]))
-        }
-        Promise.all(promises)
-          .then(url => {
+        loadScripts(scripts)
+          .then(() => {
             this.setState({
               isScriptLoaded: true,
               isScriptLoadSucceed: true
@@ -46,7 +54,13 @@ export default function (scripts) {
           })
       }
       render () {
-        return <WrappedComponent {...this.props} isScriptLoaded={this.state.isScriptLoaded} isScriptLoadSucceed={this.state.isScriptLoadSucceed} />
+        return (
+          <WrappedComponent
+            {...this.props}
+            isScriptLoaded={this.state.isScriptLoaded}
+            isScriptLoadSucceed={this.state.isScriptLoadSucceed}
+          />
+        )
       }
     }
   }
