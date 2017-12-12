@@ -46,7 +46,7 @@ export default function (scripts) {
           })
       }
       render () {
-        return <WrappedComponent {...this.state} />
+        return <WrappedComponent {...this.props} {...this.state} />
       }
     }
   }
