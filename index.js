@@ -16,7 +16,7 @@ export function createPromise (url) {
  * @params {Array} scripts
  */
 export function loadScripts (scripts) {
-  return Promise.all(scripts.map((url) => createPromise(url)))
+  return Promise.all(scripts.map(createPromise))
 }
 
 /**

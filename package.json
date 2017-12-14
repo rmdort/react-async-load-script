@@ -1,6 +1,6 @@
 {
   "name": "react-async-load-script",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Async script loader HOC for React",
   "main": "lib/index.js",
   "scripts": {
