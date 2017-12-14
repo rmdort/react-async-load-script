@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "watch": "BABEL_ENV=production babel --watch *.js --out-dir lib",
-    "prettier": "prettier-standard 'index.js'",
+    "prettier": "prettier-standard '*.js'",
     "test:watch": "yarn test --watchAll",
     "prepublish": "BABEL_ENV=production babel index.js --out-dir lib"
   },
