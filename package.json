@@ -1,11 +1,11 @@
 {
   "name": "react-async-load-script",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Async script loader HOC for React",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
-    "watch": "BABEL_ENV=production babel --watch index.js --out-dir lib",
+    "watch": "BABEL_ENV=production babel --watch *.js --out-dir lib",
     "prettier": "prettier-standard 'index.js'",
     "test:watch": "yarn test --watchAll",
     "prepublish": "BABEL_ENV=production babel index.js --out-dir lib"
@@ -14,7 +14,7 @@
   "author": "Vinay M <rmdort@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "async-script": "^0.0.1"
+    "one-time": "^0.0.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -37,6 +37,8 @@
       "<rootDir>"
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/__tests__/setup.js",
-    "testPathIgnorePatterns": ["<rootDir>/__tests__/setup.js"]
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/setup.js"
+    ]
   }
 }

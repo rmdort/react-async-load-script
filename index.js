@@ -1,5 +1,5 @@
 import React from 'react'
-import asyncScript from 'async-script'
+import asyncScript from './asyncscript.js'
 
 /**
  * Creates a single promise
@@ -16,7 +16,7 @@ export function createPromise (url) {
  * @params {Array} scripts
  */
 export function loadScripts (scripts) {
-  return scripts.reduce((cur, next) => cur.then(() => createPromise(next)), new Promise((resolve) => resolve()))
+  return Promise.all(scripts.map((url) => createPromise(url)))
 }
 
 /**
