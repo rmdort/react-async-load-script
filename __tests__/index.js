@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import assert from 'assert'
-import * as asyncLoader from './../'
+import * as asyncLoader from './../index'
 import { setTimeout } from 'core-js/library/web/timers';
 
 const jquery = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'
