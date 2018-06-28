@@ -25,7 +25,7 @@ export function loadScripts (scripts) {
  */
 export default function (scripts) {
   return function (WrappedComponent) {
-    return class LoadScript extends React.Component {
+    class LoadScript extends React.Component {
       constructor (props) {
         super(props)
         this.state = {
@@ -50,14 +50,19 @@ export default function (scripts) {
           })
       }
       render () {
+        const { forwardedRef, ...rest } = this.props
         return (
-          <WrappedComponent
-            {...this.props}
+          <WrappedComponent            
+            ref={forwardedRef}
             isScriptLoaded={this.state.isScriptLoaded}
             isScriptLoadSucceed={this.state.isScriptLoadSucceed}
+            {...rest}
           />
         )
       }
     }
+    return React.forwardRef((props, ref) => {
+      return <LoadScript {...props} forwardedRef={ref} />
+    })
   }
 }
